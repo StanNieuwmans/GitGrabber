@@ -67,15 +67,15 @@ foreach ( array_reverse( $jsonrepos->values ) as $username ) {
 		}
 	}
 }
-$rat[] = array_merge( $reponamep, $linktorepo, $img, $summary );
+$repoInfo[] = array_merge( $reponamep, $linktorepo, $img, $summary );
 
 
 $call->OpenConnection();
 $conn  = $call->getConn();
 $query = $conn->prepare( 'INSERT INTO bitbucket (`reponame`, `linktorepo`, `imglink` , `summary`) VALUES (:reponame,:linktorepo,:imglink,:summary)' );
-//$deletetable = $conn->prepare( 'TRUNCATE TABLE bitbucket_api');
-//$deletetable->execute();
-foreach ( $rat as $reponames ) {
+$deletetable = $conn->prepare( 'TRUNCATE TABLE bitbucket_api');
+$deletetable->execute();
+foreach ( $repoInfo as $reponames ) {
 	$numberinarrays = count($reponames['Name']);
 	for ($x = -0; $x <= $numberinarrays -1; $x++) {
 	$query->bindParam( ":reponame", $reponames['Name'][$x] );
@@ -86,14 +86,4 @@ foreach ( $rat as $reponames ) {
 	$query->execute();
 	}
 }
-
-
-//	$query->fetchAll( PDO::FETCH_ASSOC );
-
-
-//var_dump( $linktorepo );
-//var_dump( $img );
-//var_dump( $summary );
-
-https://stackoverflow.com/questions/21612933/insert-array-of-values-into-a-database-using-sql-query
 ?>
