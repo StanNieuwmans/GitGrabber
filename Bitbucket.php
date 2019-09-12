@@ -72,9 +72,9 @@ $rat[] = array_merge( $reponamep, $linktorepo, $img, $summary );
 
 $call->OpenConnection();
 $conn  = $call->getConn();
-$query = $conn->prepare( 'INSERT INTO bitbucket_api (`reponame`, `linktorepo`, `imglink` , `summary`) VALUES (:reponame,:linktorepo,:imglink,:summary)' );
-$deletetable = $conn->prepare( 'TRUNCATE TABLE bitbucket_api');
-$deletetable->execute();
+$query = $conn->prepare( 'INSERT INTO bitbucket (`reponame`, `linktorepo`, `imglink` , `summary`) VALUES (:reponame,:linktorepo,:imglink,:summary)' );
+//$deletetable = $conn->prepare( 'TRUNCATE TABLE bitbucket_api');
+//$deletetable->execute();
 foreach ( $rat as $reponames ) {
 	$numberinarrays = count($reponames['Name']);
 	for ($x = -0; $x <= $numberinarrays -1; $x++) {

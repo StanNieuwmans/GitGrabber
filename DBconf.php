@@ -14,7 +14,7 @@ class DBconf {
 
 	public function OpenConnection()
 	{
-		$this->setConn(new PDO('mysql:host=localhost;dbname=bitbucket', 'root', ''));
+		$this->setConn(new PDO('mysql:host=localhost;dbname=Database', 'root', ''));
 		$this->getConn()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 
