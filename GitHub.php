@@ -1,7 +1,7 @@
 <?php
 
 // fill in the username of bitbucket
-$usernameofbitbucket = 'StanNieuwmans';
+$usernameofGithub = 'StanNieuwmans';
 
 
 // sort a array with dates
